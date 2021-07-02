@@ -8,27 +8,42 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="game.css">
+  <link rel="stylesheet" href="style.css">
   <title>Appease the Dragon</title>
 </head>
 
 <body>
   <header class="container-fluid">
     <div class="row">
-      <div class="col-12 text-center bg-primary">
+      <div class="col-12 text-center bg-danger color-white">
         <h1>Appease the Dragon!</h1>
       </div>
     </div>
 
-    <footer class="container-fluid bg-secondary text-center">
-      <div class="row justify-content-between">
-        <div class="col-4 text-info p-2">
-          <button type="button" class="btn btn-primary" onclick="treb()">Trebuchet</button>
+    <main class="container"></main>
+    <div class="row">
+      <div class="col-12">
+        <div>Gold Coins:<span id="coins">0</span>
+        </div>
+        <button type="button" class="btn btn-danger" onclick="buySack('sackOfGold')">Buy Sack of Gold</button>
+        <div>Sacks of Gold:<span id="sack">0</span>
+        </div>
+        <button type="button" class="btn btn-info" onclick="buyAuto('gems')">Buy Gems</button>
+        <div>Gems:<span id="gemBag">0</span>
+          <img src="Assets/Flying-Dragon-PNG-Free-File-Download-1.png" onclick="clicks()"></img>
+
         </div>
       </div>
-    </footer>
 
-    <script src="game.js"></script>
+      <footer class="container-fluid bg-secondary text-center">
+        <div class="row justify-content-between">
+          <div class="col-4 text-info p-2">
+            <!-- <button type="button" class="btn btn-danger" onclick="buySack()">Coin</button> -->
+          </div>
+        </div>
+      </footer>
+
+      <script src="app.js"></script>
 </body>
 
 </html>
