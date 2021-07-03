@@ -70,13 +70,15 @@ function buyAuto(key) {
     upgrades.cost *= 2
     upgrades.multiplier *= 2
     console.log(upgrades)
-    draw(upgrades)
+    draw2(upgrades)
+    console.log('itz working')
   }
   else window.alert('Nope')
 
 }
 
 
+///iterates over the entire Tributes keys///
 function draw(key) {
   for (key in clickTributes) {
     let upgrades = clickTributes[key]
@@ -89,8 +91,8 @@ function draw(key) {
 function draw2(key) {
   for (key in autoTributes) {
     let upgrades = autoTributes[key]
-    console.log('itz working')
     document.getElementById('gemBag').innerText = upgrades.quantity
+    console.log("this here...", upgrades.quantity)
   }
 
 }
@@ -99,7 +101,11 @@ function startInterval() {
   collectionInterval = setInterval(collectAutoTributes, 3000);
 }
 
-function collectAutoTributes() {
+function collectAutoTributes(key) {
+  let upgrades = autoTributes[key]
+  for (i = 0; i = autoTributes.length; i++) {
+    if (upgrades.quantity > 0)
+      coins += upgrades.quantity * upgrades.multiplier
 
-
+  }
 }
