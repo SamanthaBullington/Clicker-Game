@@ -8,44 +8,114 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
   <title>Appease the Dragon</title>
 </head>
 
 <body>
   <header class="container-fluid">
     <div class="row">
-      <div class="col-12 text-center bg-danger color-white">
+      <div class="col-12 text-center color-white">
         <h1>Appease the Dragon!</h1>
       </div>
     </div>
+  </header>
 
-    <main class="container"></main>
+  <main class="container d-flex flex-column">
     <div class="row">
-      <div class="col-12">
-        <div>Gold Coins:<span id="coins">0</span>
+      <div class="col-4 centerItems">
+        <div class="cardStyle">
+          <div class="outline">Gold Coins:<span id="coins">0</span>
+          </div>
+          <img src="assets/coin-img.png" width="200px" height="200px" class="p-2" onclick="clicks()"></img>
         </div>
 
-        <button type="button" class="btn btn-danger" onclick="buySack('sackOfGold')">Buy Sack of Gold</button>
-        <div>Sacks of Gold:<span id="sack"></span>
-        </div>
+        <button type="button" class="btn btn-secondary btnStyle" onclick="buySack('sackOfGold')">
+          <div class="row">
+            <div class="col-4 d-flex centerItems"><img src="assets/pouch-bag.png" width="60px" height="60px"></img>
+            </div>
+            <div class="col-6 centerItems">
+              <div class="outline"> Offer
+                Sack of Gold <br />
+                <span class="whiteText">Cost:
+                  <span id="sackCost">0
+                  </span></span> <br />Coins x
+                <span id="sackId">0</span>
+              </div>
+              Sacks of Gold:<span id="sack">0</span>
+            </div>
 
-        <button type="button" class="btn btn-info" onclick="buyAuto('gems')">Buy Gems</button>
-        <div>Gems:<span id="gemBag"></span>
-          <img src="Assets/Flying-Dragon-PNG-Free-File-Download-1.png" onclick="clicks()"></img>
-
-        </div>
+        </button>
       </div>
 
-      <footer class="container-fluid bg-secondary text-center">
-        <div class="row justify-content-between">
-          <div class="col-4 text-info p-2">
-            <!-- <button type="button" class="btn btn-danger" onclick="buySack()">Coin</button> -->
-          </div>
-        </div>
-      </footer>
+      <div class="col-4 centerItems">
+        "Pay tribute, Mortals, and I might not eat you."
+      </div>
 
-      <script src="app.js"></script>
+
+      <div class="col-4 centerItems">
+        <button type="button" class="btn btn-secondary btnStyle" onclick="buyAuto('gems')">
+          <div class="row">
+            <div class="col-4 d-flex  centerItems"><img src="assets/diamond.png" width="50px" height="50px"></img></div>
+            <div class="col-6 centerItems">
+              <div class="outline"> Offer
+                Gems<br /><span class="whiteText">Cost:
+                  <span id="gemCost">0</span></span>
+                <br />Coins x
+                <span id="gemId">0</span>
+              </div>Gems:<span id="gemBag">0</span>
+            </div>
+          </div>
+        </button>
+
+        <button type="button" class="btn btn-secondary btnStyle" onclick="buyAuto('treasureChest')">
+          <div class="row">
+            <div class="col-4 d-flex centerItems"><img src="assets/treasure.png" width="50px" height="50px"></img></div>
+            <div class="col-7  centerItems">
+              <div class="outline">Offer Treasure Chest <br /><span class="whiteText">Cost:
+                  <span id="chestCost">0</span></span>
+                <br />Coins x
+                <span id="chestId">0</span>
+              </div>Chests:<span id="treasure">0</span>
+            </div>
+          </div>
+        </button>
+
+
+
+        <button type="button" class="btn btn-secondary btnStyle" onclick="buyAuto('goat')">
+          <div class="row">
+            <div class="col-4 d-flex centerItems"><img src="assets/goat.png" width="60px">
+            </div>
+            <div class="col-6 centerItems">
+              <div class="outline">Offer Goat
+                <br /><span class="whiteText">Cost:
+                  <span id="goatCost">0</span></span>
+                <br />Coins x
+                <span id="goatId">0</span>
+              </div> Goats:<span id="billyGoat">0</span>
+            </div>
+
+          </div>
+        </button>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="container-fluid  text-center">
+    <div class="row justify-content-between">
+      <div class="col-4 text-secondary p-2">
+        <!-- <button type="button" class="btn btn-danger" onclick="buySack()">Coin</button> -->
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 
 </html>

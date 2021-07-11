@@ -1,42 +1,47 @@
 let clickTributes = {
-  goldCoins: {
-    cost: 1,
+  sackOfGold: {
+    id: 'sack',
+    cost: 50,
+    costId: 'sackCost',
     quantity: 0,
     multiplier: 1,
-  },
-  sackOfGold: {
-    cost: 10,
-    quantity: 0,
-    multiplier: 2,
+    multiId: 'sackId',
+    img: 'assets/pouch-bag.png',
   },
 };
 
 let autoTributes = {
   gems: {
-    cost: 50,
+    id: 'gemBag',
+    cost: 1000,
+    costId: 'gemCost',
     quantity: 0,
-    multiplier: 2,
+    multiplier: 1,
+    multiId: 'gemId',
+    img: 'assets/diamond.png',
   },
-  relics: {
-    cost: 100,
+  treasureChest: {
+    id: 'treasure',
+    cost: 3000,
+    costId: 'chestCost',
     quantity: 0,
     multiplier: 3,
+    multiId: 'chestId',
+    img: 'assets/treasure.png',
   },
-  smTreasureChest: {
-    cost: 150,
-    quantity: 0,
-    multiplier: 4,
-  },
-  lgTreasureChest: {
-    cost: 200,
+  goat: {
+    id: 'billyGoat',
+    cost: 5000,
+    costId: 'goatCost',
     quantity: 0,
     multiplier: 5,
+    multiId: 'goatId',
+    img: 'assets/goat.png',
   },
 };
 
-let coins = 0
-
-
+let coins = 0;
+let interval;
 
 function clicks() {
   coins++
@@ -46,7 +51,8 @@ function clicks() {
     let total = upgrades.quantity * upgrades.multiplier
     coins += total
   }
-  draw()
+  drawClick()
+  drawAuto()
 
 }
 
@@ -58,54 +64,65 @@ function buySack(key) {
     upgrades.cost *= 2
     upgrades.multiplier *= 2
     console.log(upgrades)
-    draw(upgrades)
+    drawClick()
+    drawAuto()
   }
-  else window.alert('Not enough money')
+  else window.alert('"Thats all the gold you have? Pathetic."')
 }
 
 function buyAuto(key) {
   let upgrades = autoTributes[key]
   if (coins >= upgrades.cost) {
+    coins -= upgrades.cost
     upgrades.quantity++
     upgrades.cost *= 2
     upgrades.multiplier *= 2
     console.log(upgrades)
-    draw2(upgrades)
-    console.log('itz working')
+    drawClick()
+    drawAuto()
   }
-  else window.alert('Nope')
+  else window.alert('"Your tribute is insufficient. Bring more gold coins."')
 
 }
 
-
-///iterates over the entire Tributes keys///
-function draw(key) {
+function drawClick() {
+  document.getElementById('coins').innerText = coins
   for (key in clickTributes) {
     let upgrades = clickTributes[key]
-    document.getElementById('coins').innerText = coins
-    document.getElementById('sack').innerText = upgrades.quantity
+    document.getElementById(upgrades.id).innerText = upgrades.quantity
+    document.getElementById(upgrades.costId).innerText = upgrades.cost
+    document.getElementById(upgrades.multiId).innerText = upgrades.multiplier
   }
 
 }
 
-function draw2(key) {
+function drawAuto() {
   for (key in autoTributes) {
     let upgrades = autoTributes[key]
-    document.getElementById('gemBag').innerText = upgrades.quantity
-    console.log("this here...", upgrades.quantity)
+    document.getElementById(upgrades.id).innerText = upgrades.quantity
+    document.getElementById(upgrades.costId).innerText = upgrades.cost
+    document.getElementById(upgrades.multiId).innerText = upgrades.multiplier
   }
 
 }
 
 function startInterval() {
-  collectionInterval = setInterval(collectAutoTributes, 3000);
+  interval = setInterval(collectAutoTributes, 3000);
+  console.log('interval')
 }
 
-function collectAutoTributes(key) {
-  let upgrades = autoTributes[key]
-  for (i = 0; i = autoTributes.length; i++) {
-    if (upgrades.quantity > 0)
+function collectAutoTributes() {
+  console.log('autotribute check')
+  for (key in autoTributes) {
+    let upgrades = autoTributes[key]
+    if (upgrades.quantity > 0) {
       coins += upgrades.quantity * upgrades.multiplier
-
+      drawClick()
+      drawAuto()
+    }
   }
 }
+
+drawAuto()
+drawClick()
+startInterval()
