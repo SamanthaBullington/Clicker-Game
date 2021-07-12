@@ -8,6 +8,15 @@ let clickTributes = {
     multiId: 'sackId',
     img: 'assets/pouch-bag.png',
   },
+  goldBar: {
+    id: 'bar',
+    cost: 500,
+    costId: 'barCost',
+    quantity: 0,
+    multiplier: 5,
+    multiId: 'barId',
+    img: 'assets/gold-bar.png',
+  },
 };
 
 let autoTributes = {
@@ -16,7 +25,7 @@ let autoTributes = {
     cost: 1000,
     costId: 'gemCost',
     quantity: 0,
-    multiplier: 5,
+    multiplier: 10,
     multiId: 'gemId',
     img: 'assets/diamond.png',
   },

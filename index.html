@@ -29,9 +29,9 @@
     <div class="row">
       <div class="col-4 centerItems">
         <div class="cardStyle">
+          <img src="assets/coin-img.png" width="200px" height="200px" class="p-2" onclick="clicks()"></img>
           <div class="outline">Gold Coins:<span id="coins">0</span>
           </div>
-          <img src="assets/coin-img.png" width="200px" height="200px" class="p-2" onclick="clicks()"></img>
         </div>
 
         <button type="button" class="btn btn-secondary btnStyle" onclick="buySack('sackOfGold')">
@@ -47,6 +47,22 @@
                 <span id="sackId">0</span>
               </div>
               Sacks of Gold:<span id="sack">0</span>
+            </div>
+        </button>
+
+        <button type="button" class="btn btn-secondary btnStyle" onclick="buySack('goldBar')">
+          <div class="row">
+            <div class="col-4 d-flex centerItems"><img src="assets/gold-bar.png" width="60px" height="60px"></img>
+            </div>
+            <div class="col-6 centerItems">
+              <div class="outline"> Offer
+                Gold Bar <br />
+                <span class="whiteText">Cost:
+                  <span id="barCost">0
+                  </span></span> <br />Coins x
+                <span id="barId">0</span>
+              </div>
+              Bars of Gold:<span id="bar">0</span>
             </div>
 
         </button>

@@ -12,7 +12,6 @@ body {
   background-size: cover;
   overflow-x: hidden;
   color: white;
-  text-shadow: 1px 1px #ffffff;
 }
 
 header { 
@@ -62,7 +61,6 @@ footer {
 .outline {
   color: black;
   font-weight: bold;
-  text-shadow: 1px 1px #ffffff;
   text-align: center;
   border-width: 2px;
   border-style: inset;
